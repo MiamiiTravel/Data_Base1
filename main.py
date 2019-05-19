@@ -20,14 +20,7 @@ select FirstName, Phone, ReportsTo from Employee where ReportsTo
 '''
 
 query_string_third_task = '''
-select FirstName, Phone from Customer as c
-where exists(
-    select t.TrackId
-    from (Invoice inner join InvoiceLine on Invoice.InvoiceId = InvoiceLine.InvoiceId) t
-    where t.CustomerId = c.CustomerId and t.TrackId in (
-        select TrackId
-        from Track where UnitPrice = (select max(UnitPrice) from Track))
-    )
+SELECT FirstName, Phone from Customer as c
 '''
 
 
